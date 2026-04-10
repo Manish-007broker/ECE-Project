@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Heart Attack Detection System</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Three.js (Sleek 3D Background) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="stars-container"></div>
+    <div class="glow-orb" id="orb1"></div>
+    <div class="glow-orb" id="orb2"></div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fa-solid fa-heart-pulse"></i> AI-HADS
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#simulation" class="highlight">Simulation App</a></li>
+            <li>
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge">PROTOTYPE 1.0</div>
+            <h1>AI-Based Silent Heart Attack <span class="text-gradient">Detection</span></h1>
+            <p>A smart wearable architecture combining IoT sensors and Machine Learning to detect subtle physiological changes indicative of a silent myocardial infarction.</p>
+            <div class="hero-actions">
+                <a href="#simulation" class="btn btn-primary">
+                    Launch Simulation <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#architecture" class="btn btn-secondary">
+                    How it Works
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="pulse-ring"></div>
+            <div class="heartbeat-container">
+                <i class="fa-solid fa-heart heart-icon"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="section-container">
+            <h2>The Silent <span class="text-gradient">Threat</span></h2>
+            <div class="grid-2">
+                <div class="card info-card">
+                    <i class="fa-solid fa-user-doctor icon-large"></i>
+                    <h3>What is a Silent Heart Attack?</h3>
+                    <p>Unlike classic heart attacks with severe chest pain, a silent myocardial infarction (SMI) lacks typical symptoms. Patients might only feel mild fatigue or indigestion, delaying life-saving treatment.</p>
+                </div>
+                <div class="card info-card">
+                    <i class="fa-solid fa-microchip icon-large"></i>
+                    <h3>Our Solution</h3>
+                    <p>By continuously monitoring ECG patterns, blood oxygen (SpO2), body temperature, and patient motion, our AI algorithm identifies anomalies that predict an SMI before irreversible damage occurs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="components" class="section">
+        <div class="section-container">
+            <h2>Hardware <span class="text-gradient">Components</span></h2>
+            <div class="grid-4">
+                <div class="card component-card">
+                    <i class="fa-solid fa-wave-square icon"></i>
+                    <h4>ECG Sensor</h4>
+                    <p>Monitors electrical activity of the heart (AD8232).</p>
+                </div>
+                <div class="card component-card">
+                    <i class="fa-solid fa-lungs icon"></i>
+                    <h4>Pulse Oximeter</h4>
+                    <p>Measures pulse rate and blood oxygen levels (MAX30102).</p>
+                </div>
+                <div class="card component-card">
+                    <i class="fa-solid fa-temperature-half icon"></i>
+                    <h4>Temp Sensor</h4>
+                    <p>Continuously tracks body temperature (LM35).</p>
+                </div>
+                <div class="card component-card">
+                    <i class="fa-solid fa-person-running icon"></i>
+                    <h4>Accelerometer</h4>
+                    <p>Detects physical activity context.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="section">
+        <div class="section-container">
+            <h2>System <span class="text-gradient">Architecture</span></h2>
+            <div class="workflow-container">
+                <div class="workflow-step">
+                    <div class="step-icon"><i class="fa-solid fa-watch"></i></div>
+                    <h4>1. Data Capture</h4>
+                    <p>Wearable IoT nodes gather raw vital signs.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="workflow-step">
+                    <div class="step-icon"><i class="fa-solid fa-signal"></i></div>
+                    <h4>2. Processing</h4>
+                    <p>Microcontroller filters noise & formats data.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="workflow-step">
+                    <div class="step-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h4>3. AI Analysis</h4>
+                    <p>Cloud server applies trained ML models.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="workflow-step">
+                    <div class="step-icon"><i class="fa-solid fa-bell"></i></div>
+                    <h4>4. Action</h4>
+                    <p>Triggers emergency alarms / SMS logic.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interventions" class="section">
+        <div class="section-container">
+            <h2>Risk Management & <span class="text-gradient">Reconditioning</span></h2>
+            <div class="grid-3">
+                <div class="card intervention-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-heart-circle-exclamation icon"></i>
+                        <h3>Tachycardia</h3>
+                    </div>
+                    <p class="criterion">Criterion: Resting HR > 100 bpm</p>
+                    <div class="suggestion-list">
+                        <h4>Recommended Protocol:</h4>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> <strong>Guided Pranayama:</strong> 10 mins of slow, deep diaphragmatic breathing to enhance parasympathetic tone.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Light Aerobics:</strong> 15-20 mins of flat-surface walking at a mild pace, keeping heart rate within zone 1.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Vagal Maneuvers:</strong> Gentle progressive relaxation starting from facial muscles to the core.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card intervention-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-lungs-virus icon"></i>
+                        <h3>Mild Hypoxia</h3>
+                    </div>
+                    <p class="criterion">Criterion: SpO2 levels 90% - 94%</p>
+                    <div class="suggestion-list">
+                        <h4>Recommended Protocol:</h4>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> <strong>Pursed-Lip Breathing:</strong> Inhale deeply for 2 seconds, exhale for 4 seconds through pursed lips.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Incentive Spirometry:</strong> 10 guided breaths per hour to expand pulmonary capacity effectively.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Posture Adjustment:</strong> Sit upright in an orthopneic position to maximize chest cavity expansion.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card intervention-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-droplet icon"></i>
+                        <h3>Hypertension Risk</h3>
+                    </div>
+                    <p class="criterion">Criterion: Sustained BP > 140/90 mmHg</p>
+                    <div class="suggestion-list">
+                        <h4>Recommended Protocol:</h4>
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> <strong>Isometric Exercises:</strong> Gentle handgrip exercises at 30% max effort for 2 mins to lower resting BP.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Mindfulness Meditation:</strong> Daily 15 mins focus sessions to significantly reduce sympathetic nerve drive.</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Endurance Training:</strong> Stationary cycling or aquatic workouts after clearance from medical personnel.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Simulation Dashboard -->
+    <section id="simulation" class="section dark-bg">
+        <div class="section-container">
+            <div class="sim-header">
+                <h2>Live Data <span class="text-gradient">Dashboard</span></h2>
+                <div class="sim-controls">
+                    <button id="btn-start" class="btn btn-primary">Start Monitoring</button>
+                    <button id="btn-stop" class="btn btn-secondary" disabled>Stop</button>
+                    <button id="btn-download" class="btn btn-outline" disabled><i class="fa-solid fa-file-lines"></i> View Report</button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Status Panel -->
+                <div class="panel status-panel">
+                    <h3>System Status</h3>
+                    <div id="status-indicator" class="status-indicator normal">
+                        <div class="pulse-dot"></div>
+                        <span id="status-text">STANDBY</span>
+                    </div>
+                    <div class="alert-box" id="alert-message">
+                        System is waiting for activation.
+                    </div>
+                    
+                    <!-- Live AI Recommendations -->
+                    <div id="live-recommendation" style="display: none; margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                        <h4 style="color: var(--accent-primary); margin-bottom: 0.8rem; font-size: 1rem;">
+                            <i class="fa-solid fa-heart-pulse"></i> Live AI Suggestion
+                        </h4>
+                        <div id="recommendation-text" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5; background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px;">
+                            Initializing AI models...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vital Cards -->
+                <div class="panel vitals-panel">
+                    <div class="vital-card">
+                        <div class="vital-header">Heart Rate</div>
+                        <div class="vital-value"><span id="val-hr">--</span> <span class="unit">bpm</span></div>
+                    </div>
+                    <div class="vital-card">
+                        <div class="vital-header">SpO2</div>
+                        <div class="vital-value"><span id="val-spo2">--</span> <span class="unit">%</span></div>
+                    </div>
+                    <div class="vital-card">
+                        <div class="vital-header">Temperature</div>
+                        <div class="vital-value"><span id="val-temp">--</span> <span class="unit">°C</span></div>
+                    </div>
+                    <div class="vital-card">
+                        <div class="vital-header">Risk Score</div>
+                        <div class="vital-value"><span id="val-risk">--</span> <span class="unit">/100</span></div>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="panel chart-panel">
+                    <canvas id="vitalsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>Project: AI-Based Silent Heart Attack Detection System</p>
+            <p class="students">Created by: Manish</p>
+        </div>
+    </footer>
+
+    <!-- Report Modal -->
+    <div id="report-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2>Session <span class="text-gradient">Report</span></h2>
+            <textarea id="report-content" readonly></textarea>
+            <div class="modal-actions">
+                <button id="btn-download-txt" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download .TXT</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
